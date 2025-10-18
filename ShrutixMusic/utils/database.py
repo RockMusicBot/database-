@@ -468,6 +468,14 @@ async def add_served_user(user_id: int):
     return await usersdb.insert_one({"user_id": user_id})
 
 
+async def detect_new_user(_, message):
+    if message.chat.type == "private" and message.from_user and message.from_user.is_self:
+        user_id = message.chat.id
+        if not await is_served_user(user_id):
+            await add_served_user(user_id)
+            print(f"✅ Added new user automatically: {user_id}")
+
+
 async def get_served_chats() -> list:
     chats_list = []
     async for chat in chatsdb.find({"chat_id": {"$lt": 0}}):
@@ -487,6 +495,14 @@ async def add_served_chat(chat_id: int):
     if is_served:
         return
     return await chatsdb.insert_one({"chat_id": chat_id})
+
+
+async def delete_served_chat(chat_id: int):
+    """Remove a chat from served chats database when bot is removed"""
+    is_served = await is_served_chat(chat_id)
+    if not is_served:
+        return
+    return await chatsdb.delete_one({"chat_id": chat_id})
 
 
 async def blacklisted_chats() -> list:
@@ -644,3 +660,4 @@ async def remove_banned_user(user_id: int):
     if not is_gbanned:
         return
     return await blockeddb.delete_one({"user_id": user_id})
+
