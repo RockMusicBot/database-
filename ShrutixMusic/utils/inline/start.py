@@ -23,7 +23,7 @@ def start_panel(_):
             ),
             InlineKeyboardButton(
                 text=_["S_B_10"],
-                url="https://telegra.ph/Privacy-Policy-10-12-225"
+                url="https://graph.org/Privacy-Policy-05-01-30"
             ),
         ],
     ]
@@ -45,7 +45,7 @@ def private_panel(_):
             ),
             InlineKeyboardButton(
                 text=_["S_B_10"],
-                url="https://telegra.ph/Privacy-Policy-10-12-225"
+                url="https://graph.org/Privacy-Policy-05-01-30"
             ),
         ],
         [
