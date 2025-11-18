@@ -24,7 +24,7 @@ import os
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
 from pyrogram.types import Message
-from ShrutiXMusic import app
+from ShrutiXMusic import nand
 from ShrutiXMusic.misc import SUDOERS
 from pyrogram.enums import ChatMemberStatus
 import asyncio
