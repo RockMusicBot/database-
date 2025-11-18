@@ -3,7 +3,7 @@ import random
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from config import LOGGER_ID
-from ShrutixMusic import app
+from ShrutixMusic import nand
 from ShrutixMusic.utils.database import add_served_chat, get_assistant
 
 welcome_photo = "https://files.catbox.moe/ajobub.jpg"
