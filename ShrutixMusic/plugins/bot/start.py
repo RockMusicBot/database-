@@ -86,7 +86,7 @@ async def start_pm(client, message: Message, _):
                 link = result["link"]
                 published = result["publishedTime"]
             searched = _["start_6"].format(
-                title, duration, views, published, channellink, channel, akash.mention
+                title, duration, views, published, channellink, channel, nand.mention
             )
             key = InlineKeyboardMarkup([
                 [InlineKeyboardButton(text=_["S_B_8"], url=link),
@@ -194,4 +194,5 @@ async def welcome(client, message: Message):
         except Exception as ex:
             print(ex)
             
+
 
