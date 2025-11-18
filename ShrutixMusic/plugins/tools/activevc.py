@@ -4,9 +4,9 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, 
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-from ShrutiXMusic import app
-from ShrutiXMusic.misc import SUDOERS
-from ShrutiXMusic.utils.database import (
+from ShrutixMusic import app
+from ShrutixMusic.misc import SUDOERS
+from ShrutixMusic.utils.database import (
     get_active_chats,
     get_active_video_chats,
 )
