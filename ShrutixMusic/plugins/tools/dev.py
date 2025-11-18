@@ -11,7 +11,7 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from ShrutixMusic import nand
-from ShrutixMusic.misc import SUDOERS
+from ShrutixMusic.misc import OWNER_ID
 
 
 async def aexec(code, client, message):
@@ -374,3 +374,4 @@ async def maintenance_shellrunner(_, message: Message):
         await edit_or_reply(message, text="<b>OUTPUT :</b>\n<code>None</code>")
 
     await message.stop_propagation()
+
