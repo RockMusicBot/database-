@@ -1,4 +1,4 @@
-                    
+                     
 import random
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -89,41 +89,4 @@ async def on_left_chat_member(_, message: Message):
             await delete_served_chat(chat_id)
             await userbot.leave_chat(chat_id)
     except Exception as e:
-        return                ]
-
-                await nand.send_message(
-                    LOGGER_ID,
-                    text=caption,
-                    reply_markup=InlineKeyboardMarkup(buttons)
-                )
-
-                await add_served_chat(message.chat.id)
-                if username:
-                    await userbot.join_chat(f"@{username}")
-
-    except Exception as e:
-        print(f"Error: {e}")
-
-@nand.on_message(filters.left_chat_member, group=-12)
-async def on_left_chat_member(_, message):
-    try:
-        userbot = await get_assistant(message.chat.id)
-        left_member = message.left_chat_member
-
-        if left_member and left_member.id == (await nand.get_me()).id:
-            removed_by = message.from_user.mention if message.from_user else "Unknown User"
-
-            caption = (
-                f"❌ <b>Music Bot Left Group!</b>\n\n"
-                f"📝 <b>Chat Name:</b> {message.chat.title}\n"
-                f"🆔 <b>Chat ID:</b> {message.chat.id}\n"
-                f"🙋 <b>Removed By:</b> {removed_by}\n\n"
-                f"#Left"
-            )
-
-            await nand.send_message(LOGGER_ID, text=caption)
-            await delete_served_chat(message.chat.id)
-            await userbot.leave_chat(message.chat.id)
-
-    except Exception:
         return
