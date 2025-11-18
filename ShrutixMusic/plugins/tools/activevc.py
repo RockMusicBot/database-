@@ -4,7 +4,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, 
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-from ShrutixMusic import app
+from ShrutixMusic import nand
 from ShrutixMusic.misc import SUDOERS
 from ShrutixMusic.utils.database import (
     get_active_chats,
