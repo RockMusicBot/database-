@@ -56,7 +56,7 @@ async def start_pm(client, message: Message, _):
             keyboard = help_pannel(_)
             await message.reply_photo(
                 photo=user_photo,
-                caption=_["help_1"].format(config.SUPPORT_GROUP),
+                caption=_["help_1"].format(config.SUPPORT_CHAT),
                 reply_markup=keyboard,
             )
 
@@ -90,7 +90,7 @@ async def start_pm(client, message: Message, _):
             )
             key = InlineKeyboardMarkup([
                 [InlineKeyboardButton(text=_["S_B_8"], url=link),
-                 InlineKeyboardButton(text=_["S_B_9"], url=config.SUPPORT_GROUP)],
+                 InlineKeyboardButton(text=_["S_B_9"], url=config.SUPPORT_CHAT)],
             ])
             await m.delete()
             await message.reply_photo(
@@ -167,7 +167,7 @@ async def welcome(client, message: Message):
                         _["start_5"].format(
                             nand.mention,
                             f"https://t.me/{nand.username}?start=sudolist",
-                            config.SUPPORT_GROUP,
+                            config.SUPPORT_CHAT,
                         ),
                         disable_web_page_preview=True,
                     )
@@ -195,4 +195,4 @@ async def welcome(client, message: Message):
             print(ex)
             
 
-
+                    
