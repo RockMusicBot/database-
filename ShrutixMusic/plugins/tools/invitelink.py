@@ -1,38 +1,16 @@
-# Copyright (c) 2025 Nand Yaduwanshi <NoxxOP>
-# Location: Supaul, Bihar
-#
-# All rights reserved.
-#
-# This code is the intellectual property of Nand Yaduwanshi.
-# You are not allowed to copy, modify, redistribute, or use this
-# code for commercial or personal projects without explicit permission.
-#
-# Allowed:
-# - Forking for personal learning
-# - Submitting improvements via pull requests
-#
-# Not Allowed:
-# - Claiming this code as your own
-# - Re-uploading without credit or permission
-# - Selling or using commercially
-#
-# Contact for permissions:
-# Email: badboy809075@gmail.com
-
-
 import os
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
 from pyrogram.types import Message
-from ShrutiXMusic import nand
-from ShrutiXMusic.misc import SUDOERS
+from ShrutixMusic import nand
+from ShrutixMusic.misc import SUDOERS
 from pyrogram.enums import ChatMemberStatus
 import asyncio
 
 
 
 
-@app.on_message(filters.command("leave") & SUDOERS)
+@nand.on_message(filters.command("leave") & SUDOERS)
 async def leave(_, message):
     if len(message.command) != 2:
         return await message.reply_text("ᴘʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ ᴀ ɢʀᴏᴜᴘ ɪᴅ. ᴜsᴇ ʟɪᴋᴇ: /leave chat_id.")
@@ -40,25 +18,25 @@ async def leave(_, message):
         chat_id = int(message.command[1])
     except ValueError:
         return await message.reply_text(f"ɪɴᴠᴀʟɪᴅ ᴄʜᴀᴛ ɪᴅ. ᴘʟᴇᴀsᴇ ᴇɴᴛᴇʀ ᴀ ɴᴜᴍᴇʀɪᴄ ɪᴅ.")
-    CHAMPU = await message.reply_text(f"ʟᴇᴀᴠɪɴɢ ᴄʜᴀᴛ... {app.me.mention}")
+    CHAMPU = await message.reply_text(f"ʟᴇᴀᴠɪɴɢ ᴄʜᴀᴛ... {nand.me.mention}")
     try:
-        await app.send_message(chat_id, f"{app.me.mention} ʟᴇғᴛɪɴɢ ᴄʜᴀᴛ ʙʏᴇ...")
-        await app.leave_chat(chat_id)
-        await CHAMPU.edit(f"{app.me.mention} ʟᴇғᴛ ᴄʜᴀᴛ {chat_id}.")
+        await nand.send_message(chat_id, f"{nand.me.mention} ʟᴇғᴛɪɴɢ ᴄʜᴀᴛ ʙʏᴇ...")
+        await nand.leave_chat(chat_id)
+        await CHAMPU.edit(f"{nand.me.mention} ʟᴇғᴛ ᴄʜᴀᴛ {chat_id}.")
     except Exception as e:
         pass
 
 
 # Command handler for /givelink command
-@app.on_message(filters.command("givelink"))
+@nand.on_message(filters.command("givelink"))
 async def give_link_command(client, message):
     # Generate an invite link for the chat where the command is used
     chat = message.chat.id
-    link = await app.export_chat_invite_link(chat)
+    link = await nand.export_chat_invite_link(chat)
     await message.reply_text(f"ʜᴇʀᴇ's ᴛʜᴇ ɪɴᴠɪᴛᴇ ʟɪɴᴋ ғᴏʀ ᴛʜɪs ᴄʜᴀᴛ:\n{link}")
 
 
-@app.on_message(
+@nand.on_message(
     filters.command(
         ["link", "invitelink"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]
     )
@@ -108,7 +86,7 @@ async def link_command_handler(client: Client, message: Message):
         await client.send_document(
             chat_id=message.chat.id,
             document=file_name,
-            caption=f"ʜᴇʀᴇ ɪs ᴛʜᴇ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ғᴏʀ\n{chat.title}\nᴛʜᴇ ɢʀᴏᴜᴘ ɪɴғᴏʀᴍᴀᴛɪᴏɴ sᴄʀᴀᴘᴇᴅ ʙʏ : @{app.username}",
+            caption=f"ʜᴇʀᴇ ɪs ᴛʜᴇ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ғᴏʀ\n{chat.title}\nᴛʜᴇ ɢʀᴏᴜᴘ ɪɴғᴏʀᴍᴀᴛɪᴏɴ sᴄʀᴀᴘᴇᴅ ʙʏ : @{nand.username}",
         )
 
     except Exception as e:
@@ -117,16 +95,3 @@ async def link_command_handler(client: Client, message: Message):
     finally:
         if os.path.exists(file_name):
             os.remove(file_name)
-
-
-
-# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
-
-# ===========================================
-# ©️ 2025 Nand Yaduwanshi (aka @NoxxOP)
-# 🔗 GitHub : https://github.com/NoxxOP/ShrutiMusic
-# 📢 Telegram Channel : https://t.me/ShrutiBots
-# ===========================================
-
-
-# ❤️ Love From ShrutiBots 
